@@ -5,6 +5,7 @@ const cors = require("cors");
 const authController = require("./controller/auth.controller");
 const postRouter = require("./routes/Products");
 const verifyTokenRoutes = require("./routes/verifyRoutes");
+const PORT = process.env.PORT || 3030;
 app.use(express.json());
 app.use(cors());
 
@@ -22,7 +23,7 @@ app.use("/", (req, res) => {
 });
 
 db.sequelize.sync().then(() => {
-  app.listen(3001, () => {
-    console.log("Server running on port 3001");
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
   });
 });
